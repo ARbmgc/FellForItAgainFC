@@ -22,6 +22,10 @@
       <span><b id="tickerPlayed">0</b> / <b id="tickerTotal">0</b> matches played</span>
       <span>Leader: <b id="tickerLeader">—</b></span>
     </div>
+    <div class="sync-row">
+      <span id="syncStatus" class="sync-status">Connecting…</span>
+      <button class="btn secondary small" id="pullBtn">Pull latest</button>
+    </div>
   </div>
 
   <nav class="tabs" role="tablist">
@@ -29,7 +33,6 @@
     <button class="tab-btn" data-tab="fixtures" role="tab" aria-selected="false">02 Fixtures</button>
     <button class="tab-btn" data-tab="table" role="tab" aria-selected="false">03 Table</button>
     <button class="tab-btn" data-tab="knockout" role="tab" aria-selected="false">04 Knockout</button>
-    <button class="tab-btn" data-tab="data" role="tab" aria-selected="false">Data</button>
   </nav>
 
   <!-- ROSTER -->
@@ -77,22 +80,13 @@
     </div>
   </section>
 
-  <!-- DATA -->
-  <section class="panel" id="panel-data">
-    <div class="card">
-      <h2>Backup &amp; sync</h2>
-      <p class="hint">Everything here saves to this browser only. To share progress with the group, export and send the text below — whoever enters it can paste it into their own copy of the page.</p>
-      <div class="data-tools">
-        <button class="btn secondary small" id="exportBtn">Export data</button>
-        <button class="btn secondary small" id="importBtn">Import data</button>
-        <button class="btn secondary small" id="resetBtn">Reset everything</button>
-      </div>
-      <textarea id="dataBox" placeholder="Exported JSON appears here — or paste JSON here and click Import."></textarea>
-    </div>
-  </section>
+  <div class="reset-row">
+    <button class="btn secondary small" id="resetBtn">Reset everything</button>
+  </div>
 
 </div>
 
+<script src="config.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
