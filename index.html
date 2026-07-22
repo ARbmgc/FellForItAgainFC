@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fell For It Again FC — League Scorecard</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="scoreboard">
+    <p class="scoreboard__eyebrow">Season Scorecard</p>
+    <h1 class="scoreboard__title">Fell For It <span>Again FC</span></h1>
+    <div class="ticker" id="ticker">
+      <span><b id="tickerPlayers">0</b> managers</span>
+      <span><b id="tickerPlayed">0</b> / <b id="tickerTotal">0</b> matches played</span>
+      <span>Leader: <b id="tickerLeader">—</b></span>
+    </div>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="roster" role="tab" aria-selected="true">01 Roster</button>
+    <button class="tab-btn" data-tab="fixtures" role="tab" aria-selected="false">02 Fixtures</button>
+    <button class="tab-btn" data-tab="table" role="tab" aria-selected="false">03 Table</button>
+    <button class="tab-btn" data-tab="knockout" role="tab" aria-selected="false">04 Knockout</button>
+    <button class="tab-btn" data-tab="data" role="tab" aria-selected="false">Data</button>
+  </nav>
+
+  <!-- ROSTER -->
+  <section class="panel active" id="panel-roster">
+    <div class="card">
+      <h2>Managers &amp; Clubs</h2>
+      <p class="hint">Same star level, everyone's choice. Set the squad, then generate the season.</p>
+      <div id="rosterList"></div>
+      <div class="row-actions">
+        <button class="btn secondary small" id="addPlayerBtn">+ Add manager</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Season setup</h2>
+      <p class="hint">Round-robin — every manager plays everyone else once. Regenerating fixtures clears entered scores.</p>
+      <button class="btn" id="generateBtn">Generate season fixtures</button>
+    </div>
+  </section>
+
+  <!-- FIXTURES -->
+  <section class="panel" id="panel-fixtures">
+    <div class="card">
+      <h2>Fixtures</h2>
+      <p class="hint">Enter scores as they're played. The table updates automatically.</p>
+      <div id="fixturesList"><p class="empty">No fixtures yet — set your roster and generate the season first.</p></div>
+    </div>
+  </section>
+
+  <!-- TABLE -->
+  <section class="panel" id="panel-table">
+    <div class="card">
+      <h2>League Table</h2>
+      <p class="hint">Sorted by points, then goal difference, then goals for.</p>
+      <div id="tableWrap"><p class="empty">No standings yet.</p></div>
+    </div>
+  </section>
+
+  <!-- KNOCKOUT -->
+  <section class="panel" id="panel-knockout">
+    <div class="card">
+      <h2>Knockout</h2>
+      <p class="hint">Seeds pull from the top 4 in the table. Fill in scores; the winner advances automatically. Redraw any time to reseed from the current table.</p>
+      <button class="btn secondary small" id="seedBracketBtn">Seed bracket from table</button>
+      <div id="bracketWrap" style="margin-top:16px;"></div>
+    </div>
+  </section>
+
+  <!-- DATA -->
+  <section class="panel" id="panel-data">
+    <div class="card">
+      <h2>Backup &amp; sync</h2>
+      <p class="hint">Everything here saves to this browser only. To share progress with the group, export and send the text below — whoever enters it can paste it into their own copy of the page.</p>
+      <div class="data-tools">
+        <button class="btn secondary small" id="exportBtn">Export data</button>
+        <button class="btn secondary small" id="importBtn">Import data</button>
+        <button class="btn secondary small" id="resetBtn">Reset everything</button>
+      </div>
+      <textarea id="dataBox" placeholder="Exported JSON appears here — or paste JSON here and click Import."></textarea>
+    </div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
